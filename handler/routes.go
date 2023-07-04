@@ -7,10 +7,11 @@ import (
 	middleware2 "github.com/labstack/echo/v4/middleware"
 )
 
-// RegisterRoutes registers routes with their corresponding handler function
+// MappingRoutes maps routes with their corresponding handler function
 // functions are defined in handler package
-func (h *Handler) RegisterRoutes(v *echo.Group) {
+func (h *Handler) MappingRoutes(v *echo.Group) {
 
+	// Middleware registered using Echo#Use() is only executed for paths
 	v.Use(middleware.JWT(common.JWTSecret))
 	v.Use(middleware2.RemoveTrailingSlash())
 
@@ -23,8 +24,8 @@ func (h *Handler) RegisterRoutes(v *echo.Group) {
 	userGroup.POST("/login", h.Login)
 
 	urlGroup := v.Group("/urls")
-	urlGroup.GET("", h.FetchURLs)
 	urlGroup.POST("", h.CreateURL)
+	urlGroup.GET("", h.FetchURLs)
 	urlGroup.GET("/:urlID", h.GetURLStats)
 
 	alertGroup := v.Group("/alerts")

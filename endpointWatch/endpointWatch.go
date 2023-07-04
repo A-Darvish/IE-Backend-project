@@ -48,7 +48,7 @@ func (w *Watch) LoadFromDatabase() error {
 
 // AddURL appends a slice of urls to the current list of urls
 func (w *Watch) AddURL(urls []model.URL) {
-	w.URLs = append(w.URLs, urls...)
+	w.URLs = append(w.URLs, urls...) //varying number of arguments
 }
 
 // Cancel stops all tasks of fetching urls

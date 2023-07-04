@@ -18,8 +18,8 @@ func NewHandler(st *store.Store, sch *endpointWatch.Scheduler) *Handler {
 }
 
 func extractID(c echo.Context) uint {
-	e := c.Get("user").(*jwt.Token)
-	claims := e.Claims.(jwt.MapClaims)
+	e := c.Get("user").(*jwt.Token)    // Get retrieves data from the context.
+	claims := e.Claims.(jwt.MapClaims) //payload
 	id := uint(claims["id"].(float64))
 	return id
 }

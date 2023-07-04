@@ -10,8 +10,8 @@ import (
 )
 
 type userAuthRequest struct {
-	Username string `valid:"stringlength(4|32), alphanum" json:"username"`
-	Password string `valid:"stringlength(4|32)" json:"password"`
+	Username string `valid:"stringlength(3|12), alphanum" json:"username"`
+	Password string `valid:"stringlength(3|12)" json:"password"`
 }
 
 // binding user auth request with model.User instance

@@ -29,7 +29,7 @@ func main() {
 	// Group creates a new router group with prefix and optional group-level middleware.
 	g := e.Group("/api")
 	h := handler.NewHandler(st, sch)
-	h.RegisterRoutes(g)
+	h.MappingRoutes(g)
 
 	e.HTTPErrorHandler = common.CustomHTTPErrorHandler
 

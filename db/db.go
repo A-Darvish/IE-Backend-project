@@ -5,6 +5,7 @@ import (
 
 	"github.com/arvnd79/ie-proj/model"
 	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/sqlite"
 )
 
 func Setup(databaseName string) *gorm.DB {

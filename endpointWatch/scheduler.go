@@ -21,7 +21,7 @@ func NewScheduler(w *Watch) (*Scheduler, error) {
 		sch.W = w
 		return sch, nil
 	}
-	return nil, errors.New("cannot create a scheduler with nil monitor")
+	return nil, errors.New("cannot create a scheduler with nil watch")
 }
 
 // DoWithIntervals creates a ticker to the execute w.Do() every d duration
